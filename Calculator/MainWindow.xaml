@@ -5,9 +5,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Calculator"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="Calculator"
     Width="350"
     Height="525"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
@@ -25,6 +26,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label
+            x:Name="resultLabel"
             Grid.ColumnSpan="4"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
@@ -33,104 +35,138 @@
 
         <!--  Ac +/1 % /  -->
         <Button
+            x:Name="acBtn"
             Grid.Row="1"
             Margin="5"
             Content="AC" />
         <Button
+            x:Name="negBtn"
             Grid.Row="1"
             Grid.Column="1"
             Margin="5"
-            Content="+/1" />
+            Content="+/-" />
         <Button
+            x:Name="percentageBtn"
             Grid.Row="1"
             Grid.Column="2"
             Margin="5"
             Content="%" />
         <Button
+            x:Name="divBtn"
             Grid.Row="1"
             Grid.Column="3"
             Margin="5"
+            Click="OperationBtn_Click"
             Content="/" />
 
         <!--  7 8 9 *  -->
         <Button
+            x:Name="sevenBtn"
             Grid.Row="2"
             Grid.Column="0"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="7" />
         <Button
+            x:Name="eightBtn"
             Grid.Row="2"
             Grid.Column="1"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="8" />
         <Button
+            x:Name="nineBtn"
             Grid.Row="2"
             Grid.Column="2"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="9" />
         <Button
+            x:Name="mulBtn"
             Grid.Row="2"
             Grid.Column="3"
             Margin="5"
+            Click="OperationBtn_Click"
             Content="*" />
 
         <!--  4 5 6 -  -->
         <Button
+            x:Name="fourBtn"
             Grid.Row="3"
             Grid.Column="0"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="4" />
         <Button
+            x:Name="fiveBtn"
             Grid.Row="3"
             Grid.Column="1"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="5" />
         <Button
+            x:Name="sixBtn"
             Grid.Row="3"
             Grid.Column="2"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="6" />
         <Button
+            x:Name="subBtn"
             Grid.Row="3"
             Grid.Column="3"
             Margin="5"
+            Click="OperationBtn_Click"
             Content="-" />
 
         <!--  1 2 3 +  -->
         <Button
+            x:Name="oneBtn"
             Grid.Row="4"
             Grid.Column="0"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="1" />
         <Button
+            x:Name="twoBtn"
             Grid.Row="4"
             Grid.Column="1"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="2" />
         <Button
+            x:Name="threeBtn"
             Grid.Row="4"
             Grid.Column="2"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="3" />
         <Button
+            x:Name="addBtn"
             Grid.Row="4"
             Grid.Column="3"
             Margin="5"
+            Click="OperationBtn_Click"
             Content="+" />
 
         <!--  0 . =  -->
         <Button
+            x:Name="zeroBtn"
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Margin="5"
+            Click="NumberBtn_Click"
             Content="0" />
         <Button
+            x:Name="pointBtn"
             Grid.Row="5"
             Grid.Column="2"
             Margin="5"
+            Click="pointBtn_Click"
             Content="." />
         <Button
+            x:Name="calcBtn"
             Grid.Row="5"
             Grid.Column="3"
             Margin="5"

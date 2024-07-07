@@ -33,7 +33,7 @@
             Content="0"
             FontSize="60" />
 
-        <!--  Ac +/1 % /  -->
+        <!--  Ac +/- % /  -->
         <Button
             x:Name="acBtn"
             Grid.Row="1"
@@ -163,7 +163,7 @@
             Grid.Row="5"
             Grid.Column="2"
             Margin="5"
-            Click="pointBtn_Click"
+            Click="PointBtn_Click"
             Content="." />
         <Button
             x:Name="calcBtn"

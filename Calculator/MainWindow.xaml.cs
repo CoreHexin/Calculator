@@ -1,13 +1,5 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calculator
 {
@@ -60,15 +52,6 @@ namespace Calculator
             }
         }
 
-        private void PercentageBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
-            {
-                lastNumber = lastNumber / 100;
-                resultLabel.Content = lastNumber.ToString();
-            }
-        }
-
         private void OperationBtn_Click(Object sender, RoutedEventArgs e)
         {
             if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
@@ -103,19 +86,35 @@ namespace Calculator
 
         private void NegBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(resultLabel.Content.ToString(), out lastNumber))
+            if (double.TryParse(resultLabel.Content.ToString(), out double curNumber))
             {
-                lastNumber = lastNumber * -1;
-                resultLabel.Content = lastNumber.ToString();
+                curNumber = curNumber * -1;
+                resultLabel.Content = curNumber.ToString();
+            }
+        }
+
+        private void PercentageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // 需要注意计算器中百分数计算规则, 50 + 5% = 52.5 (50 + 50*0.05 = 52.5)
+            if (double.TryParse(resultLabel.Content.ToString(), out double curNumber))
+            {
+                curNumber = curNumber / 100;
+                if (lastNumber != 0)
+                {
+                    curNumber *= lastNumber;
+                }
+                resultLabel.Content = curNumber.ToString();
             }
         }
 
         private void AcBtn_Click(object sender, RoutedEventArgs e)
         {
+            lastNumber = 0;
+            result = 0;
             resultLabel.Content = "0";
         }
 
-        private void pointBtn_Click(object sender, RoutedEventArgs e)
+        private void PointBtn_Click(object sender, RoutedEventArgs e)
         {
             if (resultLabel.Content.ToString()!.Contains(".") == false)
             {
